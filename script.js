@@ -20,7 +20,7 @@ function generatePassword() {
 
   if (!start) {
     alert("This needs a value");
-  } else if (start < 8 || start > 128) {
+  } else if (start <= 8 || start => 128) {
     start = parseInt(prompt("You must choose between 8 and 128"))
   } else {
     confirmNumber = confirm("Will this contain numbers?");
