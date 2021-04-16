@@ -1,2 +1,5 @@
-# Password-Generator
-generating a password that meets a certain criteria
+Creating a Password Generator with Javascript
+
+The link is: 
+
+And it should look like: 

@@ -56,7 +56,7 @@ const lowercase = [
   'z',
 ];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '=', "'", "(", ")", ",", ".", "/", ":", ";", "<", "<", "?", "[", "]", "^", "`", "{", "}", "|", "~"];
+const symbols = ["!", "'", "#", "$", "%", "&", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "/", "]", "^", "_", "`", "{", "|", "}", "~"];
 var start;
 var conNum;
 var conSym;
@@ -68,8 +68,6 @@ function generatePassword() {
   function check() {
     if (!start) {
       alert('This needs a value');
-    } else if (isNaN(pass)) {
-      alert("You can only choose a number. Try again!"); 
     } else if (start < 8 || start > 128) {
       start = prompt('You must choose between 8 and 128');
       check();
@@ -82,19 +80,30 @@ function generatePassword() {
   }
   check();
   if (conSym) {
+    console.log(conSym);
     options = options.concat(symbols);
+    console.log(options); 
   }
   if (conNum) {
+    console.log(conNum); 
     options = options.concat(numbers);
+    console.log(options); 
   }
   if (conUpp) {
+    console.log(conUpp); 
     options = options.concat(uppercase);
+    console.log(options); 
   }
   if (conLow) {
+    console.log(conLow); 
     options = options.concat(lowercase);
-  } else {
-    options = alert('You much choose a criteria');
+    console.log(options); 
+  } 
+  if (!conSym && !conNum && !conUpp && !conLow) {
+    alert('You much choose a criteria');
+    check(); 
   }
+  console.log(options); 
   var password = [];
   for (var i = 0; i < start; i++) {
     var pickOptions = options[Math.floor(Math.random() * options.length)];
@@ -102,6 +111,7 @@ function generatePassword() {
   }
   var result = password.join('');
   return result;
+  
 }
 // Write password to the #password input
 function writePassword() {
