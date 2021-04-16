@@ -56,7 +56,7 @@ const lowercase = [
   'z',
 ];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '='];
+const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '=', "'", "(", ")", ",", ".", "/", ":", ";", "<", "<", "?", "[", "]", "^", "`", "{", "}", "|", "~"];
 var start;
 var conNum;
 var conSym;
@@ -68,6 +68,8 @@ function generatePassword() {
   function check() {
     if (!start) {
       alert('This needs a value');
+    } else if (isNaN(pass)) {
+      alert("You can only choose a number. Try again!"); 
     } else if (start < 8 || start > 128) {
       start = prompt('You must choose between 8 and 128');
       check();
@@ -94,7 +96,6 @@ function generatePassword() {
     options = alert('You much choose a criteria');
   }
   var password = [];
-  console.log(options);
   for (var i = 0; i < start; i++) {
     var pickOptions = options[Math.floor(Math.random() * options.length)];
     password.push(pickOptions);
