@@ -55,15 +55,16 @@ const lowercase = [
 'z',];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 const symbols = ["!", "'", "#", "$", "%", "&", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "/", "]", "^", "_", "`", "{", "|", "}", "~"];
-var start;
-var conNum;
-var conSym;
-var conUpp;
-var conLow;
-var options = [];
 
 
 function generatePassword() {
+  var start;
+  var conNum;
+  var conSym;
+  var conUpp;
+  var conLow;
+  var options = [];
+  
   var start = Number(prompt('What is your desired length? Choose between 8 and 128'));
   function check() {
     if (!start) {
@@ -90,6 +91,7 @@ function generatePassword() {
   }
   if (conLow) {
     options = options.concat(lowercase);
+
   } 
   if (!conSym && !conNum && !conUpp && !conLow) {
     alert('You much choose a criteria');
